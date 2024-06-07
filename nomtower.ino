@@ -146,10 +146,10 @@ void tickPump()
   const int duration = config["pump"][c]["duration"] | 5;
 
   time(&now);
-  if (pumpState && (long)now >= last + interval) {
+  if (pumpState && (long)now >= last + duration) {
       setPump(false);
       last = now;
-  } else if (!pumpState && (long)now >= last + duration) {
+  } else if (!pumpState && (long)now >= last + interval) {
       setPump(true);
       last = now;
   }
